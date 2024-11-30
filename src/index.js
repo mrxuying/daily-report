@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {ConfigProvider} from 'antd'
+import zhCN from 'antd/locale/zh_CN'
+import {Provider} from 'react-redux'
 
+import './index.less'
+import store from './store'
+
+//在入口通过Provider将redux对象通过props提供给子组件使用
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ConfigProvider locale={zhCN}>
+    <Provider store={store}>
+      APP
+    </Provider>
+  </ConfigProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
