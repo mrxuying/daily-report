@@ -1,1 +1,22 @@
 @import './assets/reset.min.css';
+
+html,body {
+  height: 100%;
+  background: #eee;
+}
+
+#root {
+  height: 100%;
+  background: #fff;
+  margin: 0 auto;
+  //max-width: 750px; // 不能写在这里，因为也会被postcss-pxtorem转换
+}
+
+.box {
+  width: 328px;
+  height: 164px;
+  line-height: 164px;
+  text-align: center;
+  font-size: 40px;
+  background: lightblue;
+}
