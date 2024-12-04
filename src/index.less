@@ -6,17 +6,26 @@ html,body {
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
   background: #fff;
   margin: 0 auto;
   //max-width: 750px; // 不能写在这里，因为也会被postcss-pxtorem转换
 }
 
-.box {
-  width: 328px;
-  height: 164px;
-  line-height: 164px;
-  text-align: center;
-  font-size: 40px;
-  background: lightblue;
+// .box {
+//   width: 328px;
+//   height: 164px;
+//   line-height: 164px;
+//   text-align: center;
+//   font-size: 40px;
+//   background: lightblue;
+// }
+
+// 修改DotLoading组件样式居中
+.adm-dot-loading {
+  font-size: 55px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

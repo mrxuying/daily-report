@@ -1,6 +1,8 @@
 // 响应式计算样式rem
 import 'lib-flexible';
-import './index.less'
+import './index.less';
+import { HashRouter } from 'react-router-dom';
+import RouterView from './router';
 
 //处理响应式布局中的最大宽度问题
 (function () {
@@ -19,8 +21,8 @@ import './index.less'
 
 export default function App() {
   return (
-    <div className='box'>
-      App...
-    </div>
+    <HashRouter>
+      <RouterView />
+    </HashRouter>
   )
 }

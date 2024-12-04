@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ConfigProvider } from 'antd';
-import zhCN from 'antd/locale/zh_CN';
+import { ConfigProvider } from 'antd-mobile';
+import zhCN from 'antd-mobile/es/locales/zh-CN';
 import { Provider } from 'react-redux';
 
 

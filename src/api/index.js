@@ -1,25 +1,30 @@
 import http from "./api";
 
-export const getTaskList = (state=0) => {
-  return http.get('/getTaskList', {
-    params: {state}
-  })
+const queryNewsLatest = () => {
+  return http.get('/api/news_latest');
 }
 
-export const addTask = (taskObj) => {
-  return http.post('/addTask', {
-    ...taskObj
-  })
-}
+const queryNewsBefore = (time) => {
+  return http.get('/api/news_before', {
+    params: {time}
+  });
+};
 
-export const removeTask = (id) => {
-  return http.get('/removeTask',{
+const queryNewsInfo = (id) => {
+  return http.get('/api/news_info',{
     params: {id}
-  })
+  });
 }
 
-export const completeTask = (id) => {
-  return http.get('/completeTask',{
+const queryCollectionExtra = (id) => {
+  return http.get('/api/story_extra',{
     params: {id}
-  })
+  });
+};
+
+export const api = {
+  queryNewsLatest,
+  queryNewsBefore,
+  queryNewsInfo,
+  queryCollectionExtra
 }

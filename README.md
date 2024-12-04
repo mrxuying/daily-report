@@ -18,6 +18,8 @@
 
   yarn add styled-components
   yarn add postcss-pxtorem lib-flexible
+  yarn add react-router-dom
+  yarn add redux-promise
 ```
 
 ```shell

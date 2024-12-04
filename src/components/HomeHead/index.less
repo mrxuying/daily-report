@@ -1,0 +1,56 @@
+.home-head-box {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;//一个靠左一个靠右
+  align-items: center;//垂直居中
+  padding: 30px 30px;//上线间距15，左右间距30
+
+  .info {
+    display: flex;//左右布局采用flex
+    align-items: center;//垂直居中
+    
+    .time {
+      padding-right: 24px;
+      width: 80px;
+      height: 80px;
+      align-items: center;
+
+      span {
+        // align-items: center;
+        display: block;//div中上下结构采用块级标签
+        line-height: 20px;//行高默认20
+        text-align: center;
+        font-size: 24px;
+
+        &:nth-child(1) {
+          font-size: 48px;
+          // font-weight: bold;
+          line-height: 60px;//修改第一行行高
+        }
+      }
+    }
+
+    .title {
+      padding-left: 24px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 48px;
+      border-left: 2px solid #d0d0d0;
+    }
+  }
+
+  .picture {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;//超出部分隐藏
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+}

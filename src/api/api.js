@@ -80,7 +80,7 @@ const http = function http(config) {
     .catch(reason => {
       Toast.show({
         icon: 'fail',
-        content: '网络繁忙,请稍后再试!'
+        content: 'Interval Error, Please try later!'
       });
       return Promise.reject(reason);
     });

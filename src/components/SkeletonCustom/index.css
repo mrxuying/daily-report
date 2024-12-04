@@ -1,0 +1,11 @@
+.skeleton-custom-box {
+  padding: 20px 30px;
+}
+.skeleton-custom-box .adm-skeleton-title {
+  margin: 30px 0;
+  height: 50px;
+}
+.skeleton-custom-box .adm-skeleton-paragraph-line {
+  margin: 20px 0;
+  height: 32px;
+}

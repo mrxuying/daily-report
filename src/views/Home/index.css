@@ -1,0 +1,80 @@
+.home-box .swiper-box {
+  box-sizing: border-box;
+  width: 750px;
+  height: 750px;
+  background: #ddd;
+}
+.home-box .swiper-box .adm-swiper {
+  height: 100%;
+}
+.home-box .swiper-box a {
+  display: block !important;
+  height: 100%;
+}
+.home-box .swiper-box .adm-image,
+.home-box .swiper-box img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.home-box .swiper-box .adm-image-tip > svg {
+  width: 20%;
+  height: 20%;
+}
+.home-box .swiper-box .desc {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 30px;
+}
+.home-box .swiper-box .desc .title {
+  font-size: 36px;
+  color: #fff;
+}
+.home-box .swiper-box .desc .author {
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 50px;
+}
+.home-box .swiper-box .adm-swiper-indicator {
+  bottom: 20px;
+  left: auto;
+  right: 0;
+  transform: translateX(-30px);
+}
+.home-box .swiper-box .adm-page-indicator-dot {
+  width: 12px;
+  height: 12px;
+  background: #dcdcdc;
+  border-radius: 10px;
+  margin: 0 6px;
+}
+.home-box .swiper-box .adm-page-indicator-dot.adm-page-indicator-dot-active {
+  width: 36px;
+  background: #fff;
+}
+.home-box .load-more-box {
+  background: #eee;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 24px;
+  color: #999;
+}
+.home-box .load-more-box .adm-dot-loading {
+  position: static;
+  transform: none;
+  font-size: 32px;
+}
+.home-box .news-box {
+  padding: 10px 30px;
+}
+.home-box .news-box .adm-divider-left.adm-divider-horizontal:before {
+  max-width: 2%;
+}
+.home-box .news-box .adm-divider-content {
+  font-size: 40px;
+  color: black;
+}
