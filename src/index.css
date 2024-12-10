@@ -16,3 +16,20 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.adm-button-loading-wrapper .adm-dot-loading {
+  position: static;
+  transform: none;
+  font-size: 30px;
+}
+.adm-toast-main {
+  max-width: 450px !important;
+  background: rgba(136, 136, 136, 0.7) !important;
+  padding: 10px !important;
+  font-size: 30px !important;
+  top: 10% !important;
+}
+.adm-toast-main .adm-toast-icon,
+.adm-toast-main .adm-auto-center,
+.adm-toast-main .adm-auto-center-content {
+  display: inline-block !important;
+}

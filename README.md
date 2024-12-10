@@ -15,6 +15,7 @@
   yarn add antd
   yarn add @ant-design/icons -g
   yarn add antd-mobile
+  yarn add antd-mobile-icons
 
   yarn add styled-components
   yarn add postcss-pxtorem lib-flexible

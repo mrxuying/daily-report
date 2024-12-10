@@ -1,0 +1,40 @@
+.personal-box {
+  display: block;
+}
+.personal-box .avator {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 100px;
+  align-items: center;
+  justify-content: center;
+}
+.personal-box .avator img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.personal-box .settings {
+  display: block;
+}
+.personal-box .settings .link {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  border-bottom: 2px solid #ddd;
+}
+.personal-box .settings .link span {
+  padding-left: 20px;
+  font-size: 32px;
+  color: black;
+  line-height: 100px;
+  width: 500px;
+}
+.personal-box .settings .link svg {
+  font-size: 32px;
+  color: black;
+  width: 100px;
+}

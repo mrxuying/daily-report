@@ -8,6 +8,7 @@ import './index.less'
 export default function NewsItem(props) {
 
   let { story } = props;
+  if (!Array.isArray(story.images)) story.images = [""]
   return (
     <div className='news-item-box'>
       <Link to={{ pathname: `/detail/:${story.id}` }}>
@@ -17,15 +18,10 @@ export default function NewsItem(props) {
         </div>
         <Image src={story.images[0]} lazy />
       </Link>
-
     </div>
   )
 }
 
-NewsItem.defaulProps = {
-
-}
-
 NewsItem.propTypes = {
-  story: PropTypes.object
+  story: PropTypes.object.isRequired
 }

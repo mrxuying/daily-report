@@ -1,0 +1,32 @@
+.login-box {
+  height: 100%;
+  display: block;
+}
+.login-box .adm-form {
+  height: 100%;
+  align-items: center;
+  padding: 30px;
+  padding-top: 300px;
+}
+.login-box .adm-list-item-content {
+  align-items: center;
+}
+.login-box .adm-form-item-label {
+  font-size: 28px !important;
+  line-height: 28px !important;
+}
+.login-box .adm-input-element {
+  min-height: 100px;
+  font-size: 30px;
+}
+.login-box .adm-button.adm-button-small {
+  font-size: 30px;
+  line-height: 70px !important;
+}
+.login-box .adm-button.adm-button-large {
+  font-size: 30px;
+  line-height: 50px;
+}
+.login-box .adm-form-item-feedback-error {
+  font-size: 22px;
+}

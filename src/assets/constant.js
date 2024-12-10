@@ -19,3 +19,7 @@ export const monthCN = [
   '十一',
   '十二',
 ]
+
+export const validTokenList = [
+  
+]

@@ -6,7 +6,7 @@ import './index.less';
 
 export default function SkeletonCustom(props) {
 
-  let { lineCount } = props;
+  let { lineCount = 5 } = props;
 
   return (
     <div className='skeleton-custom-box'>
@@ -15,10 +15,6 @@ export default function SkeletonCustom(props) {
     </div>
   );
 }
-
-SkeletonCustom.defaultProps = {
-  lineCount: 5
-};
 
 SkeletonCustom.propTypes = {
   lineCount: PropTypes.number

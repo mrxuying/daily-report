@@ -8,8 +8,9 @@ let initial = {
 export default function storeReducer(state=initial, action) {
   state = utils.clone(state);
   switch (action.type) {
-    case 1:
-  
+    case TYPES.LIST:
+      state.list = action.list;
+      break;
     default:
   }
   return state

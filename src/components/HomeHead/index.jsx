@@ -1,11 +1,15 @@
 import React, { useMemo } from 'react'
+import { Link } from 'react-router-dom';
 import timg from '../../assets/images/timg.jpg'
 import './index.less'
 import { monthCN } from '../../assets/constant';
+import { connect } from 'react-redux';
 
-export default function HomeHead(props) {
 
-  let { today } = props;
+function HomeHead(props) {
+
+  let { today, userInfo } = props;
+  // console.log(userInfo)
   let time = useMemo(() => {
     let [, month, day] = today.match(/^\d{4}(\d{2})(\d{2})$/);
     return {
@@ -13,6 +17,8 @@ export default function HomeHead(props) {
       day
     }
   }, [today])//
+
+  if (userInfo.pic) timg = userInfo.pic;
 
   return (
     <header className='home-head-box'>
@@ -23,9 +29,17 @@ export default function HomeHead(props) {
         </div>
         <h2 className="title">Month Report</h2>
       </div>
-      <div className="picture">
-        <img src={timg} alt="" />
-      </div>
+      <Link to={{ pathname: '/personal' }}>
+        <div className="picture">
+          <img src={timg} alt="" />
+        </div>
+      </Link>
+
     </header>
   )
 }
+
+export default connect(
+  state => ({ userInfo: state.base }),
+  {}
+)(HomeHead);
