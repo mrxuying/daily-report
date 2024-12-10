@@ -1,9 +1,9 @@
 import baseAction from "./base";
-import storeAction from "./store";
+import collectionAction from "./collection";
 
 const action = {
   base: baseAction,
-  store: storeAction
+  collection: collectionAction
 };
 
 export default action;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Badge } from 'antd-mobile'
+import { Badge, Toast } from 'antd-mobile'
 import { LeftOutline, LikeOutline, MessageOutline, MoreOutline, StarOutline } from 'antd-mobile-icons'
 
 import './index.less'
@@ -40,6 +40,16 @@ export default function Detail(props) {
       parent.parentNode.removeChild(parent);
     }
 
+  }
+
+  const handleStar = async () => {
+    let { code } = await api.collect(id)
+    if (+code === 0) {
+      Toast.show({
+        icon: 'success',
+        content: 'collect success'
+      })
+    }
   }
 
   useEffect(() => {
@@ -100,7 +110,7 @@ export default function Detail(props) {
           <Badge content={extra ? extra.popularity : 0}>
             <LikeOutline />
           </Badge >
-          <span><StarOutline /></span>
+          <span><StarOutline onClick={handleStar} /></span>
           <span><MoreOutline /></span>
         </div>
 

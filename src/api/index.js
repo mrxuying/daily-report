@@ -40,6 +40,39 @@ const queryUserInfo = () => {
   return http.get('/api/user_info');
 };
 
+// 收藏新闻
+const collect = (newsId) => {
+    return http.post('/api/store', { newsId });
+};
+
+// 移除收藏
+const removeCollection = (id) => {
+    return http.get('/api/store_remove', {
+        params: {
+            id
+        }
+    });
+};
+
+// 获取收藏列表
+const collectionList = () => http.get('/api/store_list');
+
+// 图片上传「要求FormData格式」
+const upload = (file) => {
+    let fm = new FormData();
+    fm.append('file', file);
+    return http.post('/api/upload', fm);
+};
+
+// 修改个人信息
+const userUpdate = (username, pic) => {
+    return http.post('/api/user_update', {
+        username,
+        pic
+    });
+};
+
+
 export const api = {
   queryNewsLatest,
   queryNewsBefore,
@@ -48,5 +81,10 @@ export const api = {
   queryStoryExtra,
   sendCodeToPhone,
   loginByCode,
-  queryUserInfo
+  queryUserInfo,
+  collect,
+  removeCollection,
+  collectionList,
+  upload,
+  userUpdate
 }

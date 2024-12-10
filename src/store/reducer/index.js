@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import baseReducer from "./base";
-import storeReducer from './store';
+import collectionReducer from './collection';
 
 const reducer = combineReducers({
   base: baseReducer,
-  store: storeReducer
+  collections: collectionReducer
 });
 
 export  default reducer;

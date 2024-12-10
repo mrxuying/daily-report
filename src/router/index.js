@@ -16,6 +16,10 @@ import action from "../store/action";
 const isCheckLogin = (path) => {
   let {base: {userInfo}} = store.getState();
   let checkList = ['/personal', '/collection', '/modifier']
+  // if(!userInfo){
+  //   let userInfoAction = await action.base.queryUserInfoAsync();
+  //   userInfo = userInfoAction.userInfo;
+  // }
   //如果当前没有登录，并且访问的是需要登录的页面，则返回true
   return !userInfo && checkList.includes(path)
 }

@@ -1,15 +1,17 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import timg from '../../assets/images/timg.jpg'
 import './index.less'
 import { monthCN } from '../../assets/constant';
-import { connect } from 'react-redux';
+import action from '../../store/action';
+
 
 
 function HomeHead(props) {
 
-  let { today, userInfo } = props;
-  // console.log(userInfo)
+  let { today, userInfo, queryUserInfoAsync } = props;
+
   let time = useMemo(() => {
     let [, month, day] = today.match(/^\d{4}(\d{2})(\d{2})$/);
     return {
@@ -18,7 +20,12 @@ function HomeHead(props) {
     }
   }, [today])//
 
-  if (userInfo.pic) timg = userInfo.pic;
+  useEffect(() => {
+    console.log(userInfo)
+    if (!userInfo) {
+      queryUserInfoAsync()
+    }
+  }, [])//eslint-disable-line
 
   return (
     <header className='home-head-box'>
@@ -31,7 +38,7 @@ function HomeHead(props) {
       </div>
       <Link to={{ pathname: '/personal' }}>
         <div className="picture">
-          <img src={timg} alt="" />
+          <img src={userInfo ? userInfo.pic : timg} alt="" />
         </div>
       </Link>
 
@@ -40,6 +47,6 @@ function HomeHead(props) {
 }
 
 export default connect(
-  state => ({ userInfo: state.base }),
-  {}
+  state => state.base,
+  action.base
 )(HomeHead);

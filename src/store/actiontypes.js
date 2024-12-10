@@ -1,2 +1,3 @@
 export const BASE_INFO = 'BASE_INFO';
-export const LIST = 'LIST';
+export const COLLECTIONS = 'COLLECTIONS';
+export const REMOVE_COLLECTION = 'REMOVE_COLLECTION'
