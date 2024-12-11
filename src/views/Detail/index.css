@@ -54,7 +54,7 @@
 .detail-box .bottom-safearea .icons span:nth-last-of-type(1) {
   color: #888;
 }
-.detail-box .bottom-safearea .icons span:nth-of-type(1).stored {
+.detail-box .bottom-safearea .icons span:nth-of-type(1).collected {
   color: coral;
 }
 .detail-box .bottom-safearea .icons .adm-badge-wrapper .adm-badge-fixed {

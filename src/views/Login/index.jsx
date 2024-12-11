@@ -64,7 +64,6 @@ function Login(props) {
       setDisabled(false)
       return;
     }
-    console.log(`--${num}------`)
     setSendCodeButton(`sendCode(${num}s)`);
   }
 

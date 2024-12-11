@@ -6,17 +6,18 @@ import { Link } from 'react-router-dom'
 import './index.less'
 
 export default function NewsItem(props) {
-  console.log(props)
   let { story } = props;
-  if (!Array.isArray(story.images)) story.images = [story.image]
+  let { id, title, hint, images, image } = story;
+  if (!images) images = [image];
+  if (!Array.isArray(story.images)) images = [image]
   return (
     <div className='news-item-box'>
-      <Link to={{ pathname: `/detail/:${story.id}` }}>
+      <Link to={{ pathname: `/detail/:${id}` }}>
         <div className="news-content">
-          <h4>{story.title}</h4>
-          {story.hint ? <p>{story.hint}</p> : null}
+          <h4>{title}</h4>
+          {hint ? <p>{hint}</p> : null}
         </div>
-        <Image src={story.images[0]} lazy />
+        <Image src={images[0]} lazy />
       </Link>
     </div>
   )

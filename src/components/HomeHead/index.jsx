@@ -21,7 +21,6 @@ function HomeHead(props) {
   }, [today])//
 
   useEffect(() => {
-    console.log(userInfo)
     if (!userInfo) {
       queryUserInfoAsync()
     }

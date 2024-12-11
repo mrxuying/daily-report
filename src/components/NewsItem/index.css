@@ -14,9 +14,10 @@
   max-height: 90px;
   overflow: hidden;
 }
-.news-item-box .news-content span {
+.news-item-box .news-content p {
   font-size: 18px;
   color: #969696;
+  padding-top: 10px;
 }
 .news-item-box a {
   display: block;

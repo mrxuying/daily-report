@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { Badge, Toast } from 'antd-mobile'
 import { LeftOutline, LikeOutline, MessageOutline, MoreOutline, StarOutline } from 'antd-mobile-icons'
+import { connect } from 'react-redux'
 
 import './index.less'
 import { api } from '../../api'
 import SkeletonCustom from '../../components/SkeletonCustom'
 import { flushSync } from 'react-dom'
+import action from '../../store/action'
 
-
-export default function Detail(props) {
+function Detail(props) {
 
   let { navigate, params } = props;//路由中默认传了
   let [newsDetail, setNewsDetail] = useState(null),
@@ -40,16 +41,6 @@ export default function Detail(props) {
       parent.parentNode.removeChild(parent);
     }
 
-  }
-
-  const handleStar = async () => {
-    let { code } = await api.collect(id)
-    if (+code === 0) {
-      Toast.show({
-        icon: 'success',
-        content: 'collect success'
-      })
-    }
   }
 
   useEffect(() => {
@@ -91,6 +82,90 @@ export default function Detail(props) {
     }
   }, [newsDetail]);//eslint-disable-line
 
+  //--------------------------处理收藏，点赞------------------------
+  let {
+    base: { userInfo: user },
+    queryUserInfoAsync,
+    collections: { collections },
+    queryCollectionListAsync,
+    removeCollectionListById,
+    location
+  } = props;
+
+  useEffect(() => {
+    (async () => {
+      // 第一次渲染完:如果userInfo不存在,我们派发任务同步登录者信息
+      if (!user) {
+        let { userInfo } = await queryUserInfoAsync();
+        user = userInfo;//eslint-disable-line
+      }
+      // 如果已经登录 && 没有收藏列表信息:派发任务同步收藏列表
+      if (user && !collections) {
+        queryCollectionListAsync();
+      }
+    })();
+  }, []);
+
+  //判断用户是否收藏了这条新闻
+  const isCollected = useMemo(() => {
+    if (!collections) return false;
+    return collections.some(item => {
+      return +item.news.id === +id;
+    });
+  }, [collections, params]);//eslint-disable-line
+
+  const handleStar = async () => {
+    //如果用户没有登录，则跳转到登录页
+    if (!user) {
+      Toast.show({
+        icon: 'fail',
+        content: 'Please Login'
+      })
+      navigate(`/login?to=${location.pathname}`, { replace: true })
+      return;
+    }
+
+    //用户登录后会返回到详情页，通过上面useEffect重新获取到了用户信息
+    //如果用户收藏过了，则取消收藏
+    if (isCollected) {
+      // 移除收藏前，先判断redux中是否存在，不存在这不发请求
+      let item = collections.find(item => {
+        return +item.news.id === +id;
+      });
+      if (!item) return;
+
+      let { code } = await api.removeCollection(item.id);
+      if (+code !== 0) {
+        Toast.show({
+          icon: 'fail',
+          content: 'Failed, please refresh'
+        });
+        return;
+      }
+      Toast.show({
+        icon: 'success',
+        content: 'Collect success'
+      });
+      removeCollectionListById(item.id); //告诉redux中也把这一项移除掉
+      return;
+
+    }
+
+    //否则就收藏
+    try {
+      let { code } = await api.collect(id)
+      if (+code === 0) {
+        Toast.show({
+          icon: 'success',
+          content: 'collect success'
+        })
+        //更新redux收藏列表
+        queryCollectionListAsync()
+      }
+    } catch (error) { }
+
+  }
+
   return (
     <div className='detail-box'>
       {
@@ -110,7 +185,7 @@ export default function Detail(props) {
           <Badge content={extra ? extra.popularity : 0}>
             <LikeOutline />
           </Badge >
-          <span><StarOutline onClick={handleStar} /></span>
+          <span className={isCollected ? 'collected' : ''} ><StarOutline onClick={handleStar} /></span>
           <span><MoreOutline /></span>
         </div>
 
@@ -118,3 +193,13 @@ export default function Detail(props) {
     </div>
   )
 }
+
+export default connect(
+  state => {
+    return {
+      base: state.base,
+      collections: state.collections
+    }
+  },
+  { ...action.base, ...action.collection }
+)(Detail)

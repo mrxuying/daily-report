@@ -11,12 +11,11 @@ import { api } from "../../api";
 /* 样式 */
 const CollectionBox = styled.div`
     .box {
-        padding:30px;
+      padding:30px;
     }
 `;
 
 function Collection(props) {
-  console.log(props)
   let { collections, queryCollectionListAsync, removeCollectionListById } = props;
   useEffect(() => {
     // 第一次加载完毕:如果redux中没有收藏列表,则异步派发获取

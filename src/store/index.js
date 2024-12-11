@@ -7,9 +7,9 @@ import reducer from './reducer';
 //开发环境开启日志
 let middleware = [thunk, promise],
   env = process.env.NODE_ENV;
-// if(env === 'development'){
-//   middleware.push(reduxLogger);
-// }
+if(env === 'development'){
+  middleware.push(reduxLogger);
+}
 
 //创建store
 const store = createStore(
