@@ -21,6 +21,7 @@
   yarn add postcss-pxtorem lib-flexible
   yarn add react-router-dom
   yarn add redux-promise
+  yarn add keepalive-react-component
 ```
 
 ```shell
