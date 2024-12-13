@@ -2,6 +2,7 @@
 import 'lib-flexible';
 import './index.less';
 import { HashRouter } from 'react-router-dom';
+import { KeepAliveProvider } from 'keepalive-react-component';
 import RouterView from './router';
 
 //处理响应式布局中的最大宽度问题
@@ -22,7 +23,9 @@ import RouterView from './router';
 export default function App() {
   return (
     <HashRouter>
-      <RouterView />
+      <KeepAliveProvider>
+        <RouterView />
+      </KeepAliveProvider>
     </HashRouter>
   )
 }

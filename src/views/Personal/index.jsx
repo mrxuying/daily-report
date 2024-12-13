@@ -26,8 +26,11 @@ function Personal(props) {
     <div className='personal-box'>
       <NavBarCustom title='Personal' />
       <div className="user-info">
-        <img className='user-avator' src={userInfo?.pic} alt="" />
+        <Link to={{ pathname: '/modifier' }} >
+          <img className='user-avator' src={userInfo?.pic} alt="" />
+        </Link>
         <p className='name'>{userInfo?.name}</p>
+
       </div>
       <div className="settings">
         <Link to={{ pathname: '/collection' }}>

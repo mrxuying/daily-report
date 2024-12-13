@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { ImageUploader, Input, Toast } from 'antd-mobile';
 import { connect } from 'react-redux';
 
-import NavBarAgain from '../../components/NavBarCustom';
-import ButtonAgain from '../../components/ButtonCustom';
+import NavBarCustom from '../../components/NavBarCustom';
+import ButtonCustom from '../../components/ButtonCustom';
 import action from '../../store/action';
 import { api } from '../../api';
 
@@ -58,6 +58,7 @@ function Modifier(props) {
     }
     return file;
   };
+
   const uploadImage = async (file) => {
     let temp;
     try {
@@ -115,10 +116,10 @@ function Modifier(props) {
   };
 
   return <UpdateBox>
-    <NavBarAgain title="修改信息" />
+    <NavBarCustom title="Modifier" />
     <div className="formBox">
       <div className="item">
-        <div className="label">头像</div>
+        <div className="label">Avatar</div>
         <div className="input">
           <ImageUploader
             value={pic}
@@ -132,19 +133,19 @@ function Modifier(props) {
         </div>
       </div>
       <div className="item">
-        <div className="label">姓名</div>
+        <div className="label">Name</div>
         <div className="input">
-          <Input placeholder='请输入账号名称'
+          <Input placeholder='Please Type Your Name'
             value={username}
             onChange={val => {
               setUserName(val);
             }} />
         </div>
       </div>
-      <ButtonAgain color='primary' className="submit"
+      <ButtonCustom color='primary' className="submit"
         onClick={submit}>
-        提交
-      </ButtonAgain>
+        Submit
+      </ButtonCustom>
     </div>
   </UpdateBox>;
 };
