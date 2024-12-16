@@ -38,6 +38,11 @@ const Element = (props) => {
   let path = location.pathname;
   let isShow = isCheckLogin(path)
 
+  //使用useEffect钩子函数，实现组件渲染完成后校验页面是否需要登录
+  	//1、需要登录的页面：如果已经登录，则直接渲染
+  	//2、需要登录的页面：如果没有登录，则跳转到登录页
+  	//3、不需要登录的页面，则直接渲染
+
   useEffect(()=>{
     //如果访问的页面不需要登录或者已经登录，则直接返回，加载页面
     if(!isShow) return;
@@ -60,6 +65,7 @@ const Element = (props) => {
       }
       //如果已经登录，且获取到了用户信息，则更新用户信息
       store.dispatch(userInfoAction);
+      //更新状态，驱动页面重新渲染
       setRamdom(+new Date())
     })()
   })

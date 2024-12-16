@@ -40,7 +40,7 @@ const taskSlice = createSlice({
 
 })
 
-//这里结构的是action，并不是reducer
+//这里解构的是action，并不是reducer
 export let {setTaskList, deleteTask, updateTask} = taskSlice.actions
 
 //实现异步派发action
